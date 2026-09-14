@@ -1,0 +1,95 @@
+{
+  "schemaName": "CaseRequest",
+  "collectionName": "blx_CaseRequests",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "householdId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Ref to Household.itemId"
+    },
+    {
+      "name": "programme",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "education | livelihood | health"
+    },
+    {
+      "name": "rawNote",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Officer's original Banglish shorthand"
+    },
+    {
+      "name": "aiSummary",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "JSON: {need, context, urgency, actions[], documents[], donorLine}"
+    },
+    {
+      "name": "urgency",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "low | medium | high"
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "draft | submitted | approved | rejected | closed"
+    },
+    {
+      "name": "assignedOfficerId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Officer responsible for follow-up"
+    },
+    {
+      "name": "amount",
+      "type": "Float",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Approved assistance amount in BDT"
+    },
+    {
+      "name": "donorLine",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "One-line donor report draft"
+    },
+    {
+      "name": "dupRiskFlag",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "JSON: {score, reasons[]} duplicate-assistance risk"
+    },
+    {
+      "name": "district",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Denormalized from household for scoping/reports"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schemaName": "Assistance",
+  "collectionName": "blx_Assistances",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "caseRequestId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Ref to CaseRequest.itemId"
+    },
+    {
+      "name": "householdId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Ref to Household.itemId"
+    },
+    {
+      "name": "programme",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "education | livelihood | health"
+    },
+    {
+      "name": "amount",
+      "type": "Float",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Amount delivered in BDT"
+    },
+    {
+      "name": "deliveredDate",
+      "type": "DateTime",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "When assistance was delivered"
+    },
+    {
+      "name": "district",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Denormalized for duplicate-check and reports"
+    }
+  ]
+}

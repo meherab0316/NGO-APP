@@ -12,6 +12,19 @@ export function useCurrentUser() {
   });
 }
 
+export function useMyRoles(): string[] {
+  const me = useCurrentUser();
+  const data = me.data as { data?: { roles?: string[] | Record<string, string[]> } } | undefined;
+  const roles = data?.data?.roles;
+  if (Array.isArray(roles)) return roles;
+  if (roles && typeof roles === "object") return Object.values(roles).flat();
+  return [];
+}
+
+export function useHasRole(role: string): boolean {
+  return useMyRoles().includes(role);
+}
+
 export function userDisplayName(profile?: BlocksUser): string {
   if (!profile) return "";
   const name = [profile.firstName, profile.lastName].filter(Boolean).join(" ").trim();

@@ -6,6 +6,13 @@ import { navItems } from "./navItems";
 import { NotificationsMenu } from "./NotificationsMenu";
 import { UserMenu } from "./UserMenu";
 import { useT } from "../../lib/i18n/LocalizationProvider";
+import { useMyRoles } from "../../features/profile/useCurrentUser";
+
+function itemVisible(item: (typeof navItems)[number], roles: string[]): boolean {
+  const allowed = (item as { roles?: string[] | null }).roles;
+  if (!allowed) return true;
+  return allowed.some((r) => roles.includes(r));
+}
 
 const COLLAPSED_KEY = "blocks-app:sidebar-collapsed";
 const MOBILE_QUERY = "(max-width: 880px)";
@@ -27,6 +34,7 @@ export function AppShell({ activePath, children, onNavigate }: { activePath: str
   const isMobile = useIsMobile();
   const [collapsedPref, setCollapsedPref] = useState(() => localStorage.getItem(COLLAPSED_KEY) === "true");
   const { t } = useT();
+  const myRoles = useMyRoles();
   // On narrow screens the sidebar is always the icon-only rail below --
   // no separate hamburger/drawer/scrim needed, and no dead-end state where
   // nothing on screen can bring navigation back.
@@ -55,7 +63,7 @@ export function AppShell({ activePath, children, onNavigate }: { activePath: str
           </button>
         </div>
         <nav>
-          {navItems.map((item) => (
+          {navItems.filter((item) => itemVisible(item, myRoles)).map((item) => (
             <a
               key={item.href}
               href={item.href}

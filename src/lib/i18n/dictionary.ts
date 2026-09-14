@@ -1,7 +1,11 @@
 export const defaultDictionary = {
-  "app.name": "Blocks App",
+  "app.name": "NGOField",
   "nav.profile": "Profile",
   "nav.logout": "Log out",
+  "nav.capture": "Record request",
+  "nav.myCases": "My cases",
+  "nav.queue": "Review queue",
+  "nav.board": "District board",
   "auth.welcome": "Welcome back",
   "auth.subtitle": "Sign in with your Blocks account to continue.",
   "auth.continue": "Continue with Blocks",

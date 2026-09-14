@@ -6,11 +6,42 @@ import { ErrorPage } from "../../features/auth/ErrorPage";
 import { LoginPage } from "../../features/auth/LoginPage";
 import { NotFoundPage } from "../../features/auth/NotFoundPage";
 import { ProfilePage } from "../../features/profile/ProfilePage";
+import { CapturePage } from "../../features/cases/CapturePage";
+import { OfficerCasesPage } from "../../features/cases/OfficerCasesPage";
+import { HouseholdPage } from "../../features/cases/HouseholdPage";
+import { CoordinatorQueuePage } from "../../features/cases/CoordinatorQueuePage";
+import { ManagerBoardPage } from "../../features/cases/ManagerBoardPage";
+import { useMyRoles } from "../../features/profile/useCurrentUser";
 
-const protectedRoutes = {
-  "/": ProfilePage,
-  "/error": ErrorPage
-};
+function RequireRole({ roles, children }: { roles: string[]; children: React.ReactNode }) {
+  const myRoles = useMyRoles();
+  if (myRoles.length > 0 && !roles.some((r) => myRoles.includes(r))) {
+    return (
+      <div className="rounded-xl border border-amber-300 bg-amber-50 p-6 text-amber-900">
+        You do not have access to this view. This screen is limited to: {roles.join(", ")}.
+      </div>
+    );
+  }
+  return <>{children}</>;
+}
+
+function AppRoutes({ path, onNavigate }: { path: string; onNavigate: (p: string) => void }) {
+  if (path === "/" ) return <ProfilePage />;
+  if (path === "/error") return <ErrorPage onNavigate={onNavigate} />;
+
+  if (path === "/officer/capture")
+    return <RequireRole roles={["field-officer"]}><CapturePage onNavigate={onNavigate} /></RequireRole>;
+  if (path === "/officer/cases")
+    return <RequireRole roles={["field-officer"]}><OfficerCasesPage onNavigate={onNavigate} /></RequireRole>;
+  if (path.startsWith("/household/"))
+    return <HouseholdPage householdId={path.slice("/household/".length)} onNavigate={onNavigate} />;
+  if (path === "/coordinator")
+    return <RequireRole roles={["programme-coordinator"]}><CoordinatorQueuePage /></RequireRole>;
+  if (path === "/manager")
+    return <RequireRole roles={["regional-manager"]}><ManagerBoardPage /></RequireRole>;
+
+  return <NotFoundPage onNavigate={onNavigate} />;
+}
 
 export function AppRouter() {
   const [path, setPath] = useState(() => window.location.pathname);
@@ -45,15 +76,10 @@ export function AppRouter() {
     );
   }
 
-  const Page = protectedRoutes[path as keyof typeof protectedRoutes];
-  if (!Page) {
-    return <NotFoundPage onNavigate={navigate} />;
-  }
-
   return (
     <RequireAuth currentPath={path} onNavigate={navigate}>
       <AppShell activePath={path} onNavigate={navigate}>
-        <Page />
+        <AppRoutes path={path} onNavigate={navigate} />
       </AppShell>
     </RequireAuth>
   );

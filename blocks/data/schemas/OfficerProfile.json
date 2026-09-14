@@ -1,0 +1,47 @@
+{
+  "schemaName": "OfficerProfile",
+  "collectionName": "blx_OfficerProfiles",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "userId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": true,
+      "isPIIData": false,
+      "description": "IAM user id of the officer"
+    },
+    {
+      "name": "name",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Officer display name"
+    },
+    {
+      "name": "districts",
+      "type": "String",
+      "isArray": true,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Districts currently covered by this officer"
+    },
+    {
+      "name": "isActive",
+      "type": "Boolean",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Whether officer is currently active"
+    },
+    {
+      "name": "phone",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Officer contact number"
+    }
+  ]
+}

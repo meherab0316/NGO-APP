@@ -1,0 +1,47 @@
+{
+  "schemaName": "AuditLog",
+  "collectionName": "blx_AuditLogs",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "actorUserId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Who performed the action"
+    },
+    {
+      "name": "action",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "view-individual | export-individual | approve | assign | transfer | export-report"
+    },
+    {
+      "name": "recordRefs",
+      "type": "String",
+      "isArray": true,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "ItemIds touched by the action"
+    },
+    {
+      "name": "justification",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Stated reason - required for individual-level access"
+    },
+    {
+      "name": "timestamp",
+      "type": "DateTime",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "When the action occurred"
+    }
+  ]
+}

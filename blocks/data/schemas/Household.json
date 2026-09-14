@@ -1,0 +1,79 @@
+{
+  "schemaName": "Household",
+  "collectionName": "blx_Households",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "headName",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Head of household name"
+    },
+    {
+      "name": "district",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Kurigram | Gaibandha | Jamalpur | Cox's Bazar"
+    },
+    {
+      "name": "upazila",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Upazila within district"
+    },
+    {
+      "name": "village",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Village name"
+    },
+    {
+      "name": "memberCount",
+      "type": "Int",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Number of household members"
+    },
+    {
+      "name": "povertyScore",
+      "type": "Int",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "SENSITIVE - poverty score, need-to-know"
+    },
+    {
+      "name": "healthNotes",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "SENSITIVE - health conditions/notes, need-to-know"
+    },
+    {
+      "name": "entitlementCards",
+      "type": "String",
+      "isArray": true,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "e.g. VGD card, old-age allowance"
+    },
+    {
+      "name": "assignedOfficerId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "UserId of currently assigned field officer"
+    }
+  ]
+}

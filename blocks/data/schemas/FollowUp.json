@@ -1,0 +1,63 @@
+{
+  "schemaName": "FollowUp",
+  "collectionName": "blx_FollowUps",
+  "schemaType": 1,
+  "fields": [
+    {
+      "name": "caseRequestId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Ref to CaseRequest.itemId"
+    },
+    {
+      "name": "householdId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Ref to Household.itemId"
+    },
+    {
+      "name": "district",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Denormalized for overdue-by-district rollup"
+    },
+    {
+      "name": "dueDate",
+      "type": "DateTime",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "When this follow-up is due"
+    },
+    {
+      "name": "status",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "pending | done | overdue"
+    },
+    {
+      "name": "assignedOfficerId",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": false,
+      "description": "Officer responsible; denormalized for own-record scoping"
+    },
+    {
+      "name": "notes",
+      "type": "String",
+      "isArray": false,
+      "isUniqueData": false,
+      "isPIIData": true,
+      "description": "Follow-up visit notes"
+    }
+  ]
+}
