@@ -5,6 +5,7 @@ import { ActionButton } from "../../shared/ui/ActionButton";
 import { EmptyState } from "../../shared/ui/EmptyState";
 import { DISTRICTS, PROGRAMMES } from "./api";
 import { summarizeNote } from "./ai";
+import { agentAdvisory } from "./agent";
 import { useHouseholds, useSubmitCase } from "./hooks";
 
 export function CapturePage({ onNavigate }: { onNavigate: (path: string) => void }) {
@@ -13,6 +14,8 @@ export function CapturePage({ onNavigate }: { onNavigate: (path: string) => void
   const [programme, setProgramme] = useState<string>("education");
   const [rawNote, setRawNote] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [advisory, setAdvisory] = useState<string | null>(null);
+  const [advisoryLoading, setAdvisoryLoading] = useState(false);
 
   const households = useHouseholds();
   const submit = useSubmitCase();
@@ -114,6 +117,28 @@ export function CapturePage({ onNavigate }: { onNavigate: (path: string) => void
                 </ul>
               </div>
               <p className="rounded-lg bg-white p-3 italic text-slate-600">"{preview.donorLine}"</p>
+              <div className="border-t border-indigo-200 pt-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-indigo-700">Blocks Agent advisory (Bangla)</span>
+                  <button
+                    className="text-xs font-medium text-indigo-600 hover:underline disabled:opacity-50"
+                    disabled={advisoryLoading || !rawNote.trim()}
+                    onClick={async () => {
+                      setAdvisoryLoading(true);
+                      setAdvisory(null);
+                      setAdvisory(await agentAdvisory(rawNote.trim()));
+                      setAdvisoryLoading(false);
+                    }}
+                  >
+                    {advisoryLoading ? "asking…" : advisory ? "refresh" : "ask agent"}
+                  </button>
+                </div>
+                {advisory ? (
+                  <p className="mt-2 whitespace-pre-wrap rounded-lg bg-white p-3 text-sm text-slate-700">{advisory}</p>
+                ) : (
+                  <p className="mt-1 text-xs text-indigo-400">Optional: get an LLM advisory paragraph for this note.</p>
+                )}
+              </div>
             </div>
           ) : (
             <EmptyState title="Start typing" description="The AI summary appears here as you type the field note." />
