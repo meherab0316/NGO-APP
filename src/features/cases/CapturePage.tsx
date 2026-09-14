@@ -30,7 +30,8 @@ export function CapturePage({ onNavigate }: { onNavigate: (path: string) => void
       householdId,
       programme,
       rawNote: rawNote.trim(),
-      district: selectedHousehold.district ?? ""
+      district: selectedHousehold.district ?? "",
+      advisory
     });
     setSubmitted(true);
     qc.invalidateQueries({ queryKey: ["case-requests"] });

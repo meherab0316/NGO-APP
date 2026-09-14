@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { blocksClient } from "../../lib/blocks/client";
+import { summarizeNote } from "./ai";
 import {
   assistance,
   auditLogs,
@@ -77,18 +78,24 @@ export function useSubmitCase() {
       programme: string;
       rawNote: string;
       district: string;
+      advisory?: string | null;
     }) => {
       const me = await blocksClient.iam.me();
       const userId = (me as { data?: { itemId?: string } })?.data?.itemId ?? "";
       const dup = await assessDuplicateRisk(input.householdId, input.programme);
+      const summary = summarizeNote(input.rawNote);
+      const aiSummary = input.advisory
+        ? JSON.stringify({ ...summary, advisory: input.advisory })
+        : JSON.stringify(summary);
       return caseRequests.create({
         householdId: input.householdId,
         programme: input.programme,
         rawNote: input.rawNote,
         district: input.district,
         status: "submitted",
-        urgency: "medium",
+        urgency: summary.urgency,
         assignedOfficerId: userId,
+        aiSummary,
         dupRiskFlag: JSON.stringify(dup)
       });
     },

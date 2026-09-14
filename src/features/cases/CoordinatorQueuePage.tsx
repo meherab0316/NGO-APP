@@ -59,7 +59,7 @@ function CaseReview({
   onApprove: (amount: number, donorLine: string, followUpDue: string) => Promise<unknown>;
   onReject: () => Promise<unknown>;
 }) {
-  const ai = parseJsonField<AiSummary>(c.aiSummary, {
+  const ai = parseJsonField<AiSummary & { advisory?: string }>(c.aiSummary, {
     need: "", context: "", urgency: "low", actions: [], documents: [], donorLine: ""
   });
   const [editing, setEditing] = useState(false);
@@ -91,6 +91,13 @@ function CaseReview({
         <summary className="cursor-pointer font-medium">Original field note</summary>
         <p className="mt-2 font-mono">{c.rawNote}</p>
       </details>
+
+      {ai.advisory && (
+        <div className="mb-4 rounded-lg border border-indigo-200 bg-indigo-50/60 p-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">Blocks Agent advisory</p>
+          <p className="mt-1 whitespace-pre-wrap text-sm text-slate-700">{ai.advisory}</p>
+        </div>
+      )}
 
       <div className="mb-4 grid gap-3 text-sm md:grid-cols-2">
         <div><span className="font-semibold">Need:</span> {editing ? "(edit below)" : ai.need}</div>
