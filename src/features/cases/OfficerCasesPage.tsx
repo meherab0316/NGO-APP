@@ -1,11 +1,11 @@
 import { PageHeader } from "../../shared/ui/PageHeader";
 import { EmptyState } from "../../shared/ui/EmptyState";
 import { parseJsonField, type CaseRequest, type DupRisk } from "./api";
-import { useCaseRequests } from "./hooks";
+import { useCaseRequests, useMyCaseRequests } from "./hooks";
 
 export function OfficerCasesPage({ onNavigate }: { onNavigate: (path: string) => void }) {
   const submitted = useCaseRequests("submitted");
-  const mine = useCaseRequests();
+  const mine = useMyCaseRequests();
 
   const rows = mine.data ?? [];
 

@@ -137,6 +137,21 @@ export function useCaseRequests(status?: string) {
   });
 }
 
+export function useMyCaseRequests() {
+  return useQuery({
+    queryKey: ["case-requests", "mine"],
+    queryFn: async () => {
+      const me = await blocksClient.iam.me();
+      const userId = (me as { data?: { itemId?: string } })?.data?.itemId ?? "";
+      const { items } = normalizeList<CaseRequest>(
+        await caseRequests.list({ pageNo: 1, pageSize: 200 })
+      );
+      // App-layer scoping: officers see only cases assigned to them.
+      return items.filter((c) => c.assignedOfficerId === userId);
+    }
+  });
+}
+
 export function useApproveCase() {
   const qc = useQueryClient();
   return useMutation({

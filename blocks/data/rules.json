@@ -2,44 +2,10 @@
   "policies": [
     {
       "schemaName": "CaseRequest",
-      "policyName": "own-cases-read",
-      "policyDescription": "Officers read cases assigned to them",
-      "policyType": 0,
-      "operation": 0,
-      "fieldNames": [],
-      "ruleGroup": {
-        "logicalOperator": 0,
-        "rules": [
-          { "leftSource": 1, "leftOperand": "assignedOfficerId", "operator": 0, "rightSource": 2, "rightOperand": "${context.userId}", "rightOperands": [], "staticValue": null, "description": null }
-        ],
-        "nestedGroups": []
-      },
-      "priority": 10,
-      "isAllowPolicy": true
-    },
-    {
-      "schemaName": "CaseRequest",
       "policyName": "own-cases-write",
       "policyDescription": "Officers create cases (assignment set on create)",
       "policyType": 0,
       "operation": 1,
-      "fieldNames": [],
-      "ruleGroup": {
-        "logicalOperator": 0,
-        "rules": [
-          { "leftSource": 1, "leftOperand": "assignedOfficerId", "operator": 0, "rightSource": 2, "rightOperand": "${context.userId}", "rightOperands": [], "staticValue": null, "description": null }
-        ],
-        "nestedGroups": []
-      },
-      "priority": 10,
-      "isAllowPolicy": true
-    },
-    {
-      "schemaName": "FollowUp",
-      "policyName": "own-followups-read",
-      "policyDescription": "Officers read follow-ups assigned to them",
-      "policyType": 0,
-      "operation": 0,
       "fieldNames": [],
       "ruleGroup": {
         "logicalOperator": 0,
@@ -62,23 +28,6 @@
         "logicalOperator": 0,
         "rules": [
           { "leftSource": 1, "leftOperand": "assignedOfficerId", "operator": 0, "rightSource": 2, "rightOperand": "${context.userId}", "rightOperands": [], "staticValue": null, "description": null }
-        ],
-        "nestedGroups": []
-      },
-      "priority": 10,
-      "isAllowPolicy": true
-    },
-    {
-      "schemaName": "OfficerProfile",
-      "policyName": "own-profile-read",
-      "policyDescription": "Officers read their own officer profile",
-      "policyType": 0,
-      "operation": 0,
-      "fieldNames": [],
-      "ruleGroup": {
-        "logicalOperator": 0,
-        "rules": [
-          { "leftSource": 1, "leftOperand": "userId", "operator": 0, "rightSource": 2, "rightOperand": "${context.userId}", "rightOperands": [], "staticValue": null, "description": null }
         ],
         "nestedGroups": []
       },
