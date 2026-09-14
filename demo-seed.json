@@ -1,0 +1,226 @@
+{
+  "households": [
+    {
+      "clientRef": "rekha",
+      "headName": "Rekha Bibi",
+      "district": "Kurigram",
+      "upazila": "Nageshwari",
+      "village": "Charpara",
+      "memberCount": 3,
+      "povertyScore": 18,
+      "healthNotes": "Elder son has respiratory issues; referred to Upazila Health Complex May 2026.",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h2",
+      "headName": "Abdul Karim",
+      "district": "Kurigram",
+      "upazila": "Sadar",
+      "village": "Village 1",
+      "memberCount": 4,
+      "povertyScore": 15,
+      "healthNotes": "",
+      "entitlementCards": [
+        "VGD"
+      ],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h3",
+      "headName": "Jahanara Begum",
+      "district": "Gaibandha",
+      "upazila": "Sadar",
+      "village": "Village 2",
+      "memberCount": 5,
+      "povertyScore": 16,
+      "healthNotes": "",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h4",
+      "headName": "Mokbul Hossain",
+      "district": "Jamalpur",
+      "upazila": "Sadar",
+      "village": "Village 3",
+      "memberCount": 6,
+      "povertyScore": 17,
+      "healthNotes": "",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h5",
+      "headName": "Shahida Khatun",
+      "district": "Cox's Bazar",
+      "upazila": "Sadar",
+      "village": "Village 4",
+      "memberCount": 4,
+      "povertyScore": 18,
+      "healthNotes": "",
+      "entitlementCards": [
+        "VGD"
+      ],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h6",
+      "headName": "Rustom Ali",
+      "district": "Kurigram",
+      "upazila": "Sadar",
+      "village": "Village 5",
+      "memberCount": 5,
+      "povertyScore": 19,
+      "healthNotes": "",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h7",
+      "headName": "Ayesha Siddiqua",
+      "district": "Gaibandha",
+      "upazila": "Sadar",
+      "village": "Village 6",
+      "memberCount": 6,
+      "povertyScore": 20,
+      "healthNotes": "",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h8",
+      "headName": "Nural Islam",
+      "district": "Jamalpur",
+      "upazila": "Sadar",
+      "village": "Village 7",
+      "memberCount": 4,
+      "povertyScore": 21,
+      "healthNotes": "",
+      "entitlementCards": [
+        "VGD"
+      ],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    },
+    {
+      "clientRef": "h9",
+      "headName": "Fatema Khatun",
+      "district": "Cox's Bazar",
+      "upazila": "Sadar",
+      "village": "Village 8",
+      "memberCount": 5,
+      "povertyScore": 22,
+      "healthNotes": "",
+      "entitlementCards": [],
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c"
+    }
+  ],
+  "caseRequests": [
+    {
+      "householdRef": "rekha",
+      "programme": "health",
+      "rawNote": "Rekha bibi chele helen hobar chesta kosto, hospitol refer kora hoyechilo",
+      "aiSummary": "{\"need\":\"Health referral follow-up\",\"context\":\"Child respiratory case; Upazila Health Complex referral\",\"urgency\":\"medium\",\"actions\":[\"Visit household to check referral completion\"],\"documents\":[\"Medical prescription\"],\"donorLine\":\"Health referral supported for a Kurigram household.\"}",
+      "urgency": "medium",
+      "status": "closed",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "amount": 800,
+      "donorLine": "Health referral supported for a Kurigram household.",
+      "dupRiskFlag": "{\"score\":0,\"reasons\":[]}",
+      "district": "Kurigram",
+      "createdDate": "2026-05-17T19:31:47.482Z"
+    }
+  ],
+  "assistances": [
+    {
+      "caseRefIndex": 0,
+      "programme": "health",
+      "amount": 800,
+      "deliveredDate": "2026-05-22T19:31:47.490Z",
+      "district": "Kurigram"
+    }
+  ],
+  "followUps": [
+    {
+      "householdRef": "rekha",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-04T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h3",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-05T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h4",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-06T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h5",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-07T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h6",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-08T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h7",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-09T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h8",
+      "caseRefIndex": null,
+      "district": "Kurigram",
+      "dueDate": "2026-09-10T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": "Seeded overdue follow-up (Kurigram backlog demo)"
+    },
+    {
+      "householdRef": "h3",
+      "caseRefIndex": null,
+      "district": "Gaibandha",
+      "dueDate": "2026-09-28T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": ""
+    },
+    {
+      "householdRef": "h5",
+      "caseRefIndex": null,
+      "district": "Jamalpur",
+      "dueDate": "2026-10-05T19:31:47.490Z",
+      "status": "pending",
+      "assignedOfficerId": "805e7cc2-2f04-4dad-bbe3-dfe76d3f7a4c",
+      "notes": ""
+    }
+  ]
+}

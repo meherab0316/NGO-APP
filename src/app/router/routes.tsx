@@ -11,6 +11,7 @@ import { OfficerCasesPage } from "../../features/cases/OfficerCasesPage";
 import { HouseholdPage } from "../../features/cases/HouseholdPage";
 import { CoordinatorQueuePage } from "../../features/cases/CoordinatorQueuePage";
 import { ManagerBoardPage } from "../../features/cases/ManagerBoardPage";
+import { SeedPage } from "../../features/cases/SeedPage";
 import { useMyRoles } from "../../features/profile/useCurrentUser";
 
 function RequireRole({ roles, children }: { roles: string[]; children: React.ReactNode }) {
@@ -39,6 +40,8 @@ function AppRoutes({ path, onNavigate }: { path: string; onNavigate: (p: string)
     return <RequireRole roles={["programme-coordinator"]}><CoordinatorQueuePage /></RequireRole>;
   if (path === "/manager")
     return <RequireRole roles={["regional-manager"]}><ManagerBoardPage /></RequireRole>;
+  if (path === "/seed")
+    return <RequireRole roles={["regional-manager"]}><SeedPage onDone={() => onNavigate("/manager")} /></RequireRole>;
 
   return <NotFoundPage onNavigate={onNavigate} />;
 }
